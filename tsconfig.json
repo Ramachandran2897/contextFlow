@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "Node16",
+    "moduleResolution": "Node16",
+    "lib": ["ES2022"],
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "exactOptionalPropertyTypes": false,
+    "paths": {
+      "@scanner/*": ["./src/scanner/*"],
+      "@context-engine/*": ["./src/context-engine/*"],
+      "@prompt-engine/*": ["./src/prompt-engine/*"],
+      "@ai-providers/*": ["./src/ai-providers/*"],
+      "@validators/*": ["./src/validators/*"],
+      "@memory-engine/*": ["./src/memory-engine/*"],
+      "@ui/*": ["./src/ui/*"],
+      "@telemetry/*": ["./src/telemetry/*"],
+      "@shared/*": ["./src/shared/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
+}

@@ -1,0 +1,148 @@
+{
+  "name": "context-flow",
+  "displayName": "Context Flow",
+  "description": "Context-Aware AI Development Intelligence Platform — the intelligence layer between developers and AI coding tools",
+  "version": "0.1.0",
+  "publisher": "context-flow",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "AI",
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "ai",
+    "context",
+    "copilot",
+    "code-generation",
+    "architecture",
+    "governance"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "contextFlow.scanRepository",
+        "title": "Context Flow: Scan Repository"
+      },
+      {
+        "command": "contextFlow.openChat",
+        "title": "Context Flow: Open AI Chat"
+      },
+      {
+        "command": "contextFlow.enhancePrompt",
+        "title": "Context Flow: Enhance Prompt"
+      },
+      {
+        "command": "contextFlow.validateCode",
+        "title": "Context Flow: Validate Current File"
+      },
+      {
+        "command": "contextFlow.showContext",
+        "title": "Context Flow: Show Collected Context"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "context-flow",
+          "title": "Context Flow",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "context-flow": [
+        {
+          "type": "webview",
+          "id": "contextFlow.chatPanel",
+          "name": "AI Chat"
+        },
+        {
+          "id": "contextFlow.contextView",
+          "name": "Context"
+        },
+        {
+          "id": "contextFlow.validationView",
+          "name": "Validation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Context Flow",
+      "properties": {
+        "contextFlow.aiProvider": {
+          "type": "string",
+          "default": "openai",
+          "enum": [
+            "openai",
+            "anthropic",
+            "gemini",
+            "local"
+          ],
+          "description": "Active AI provider"
+        },
+        "contextFlow.maxTokenBudget": {
+          "type": "number",
+          "default": 4096,
+          "description": "Maximum token budget for context"
+        },
+        "contextFlow.autoEnhancePrompts": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically enhance prompts with project context"
+        },
+        "contextFlow.autoValidate": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically validate AI-generated code"
+        },
+        "contextFlow.telemetryEnabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable anonymous usage telemetry"
+        },
+        "contextFlow.scanOnStartup": {
+          "type": "boolean",
+          "default": true,
+          "description": "Scan repository on extension activation"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "tsup",
+    "watch": "tsup --watch",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "@vscode/test-electron": "^2.3.8",
+    "@vscode/vsce": "^2.22.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.2.0"
+  },
+  "dependencies": {
+    "ts-morph": "^21.0.0"
+  }
+}
