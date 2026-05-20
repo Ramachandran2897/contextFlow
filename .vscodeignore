@@ -1,0 +1,14 @@
+.vscode/**
+.kiro/**
+src/**
+node_modules/**
+*.vsix
+.gitignore
+.eslintrc.json
+.prettierrc
+tsconfig.json
+tsup.config.ts
+vitest.config.*
+coverage/**
+**/*.test.ts
+**/*.map

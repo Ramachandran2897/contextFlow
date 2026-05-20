@@ -5,6 +5,10 @@
   "version": "0.1.0",
   "publisher": "context-flow",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ramachandran2897/contextFlow"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -24,7 +28,7 @@
   "activationEvents": [
     "onStartupFinished"
   ],
-  "main": "./dist/extension.js",
+  "main": "./dist/index.js",
   "contributes": {
     "commands": [
       {
